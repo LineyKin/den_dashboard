@@ -6,7 +6,7 @@ function active_item(obj) {
 }
 
 function create_table(data, table_cap) {
-	$("#screen_table").html('<table><thead><tr></tr></thead></table>');
+	$("#screen_table").html('<table class="table-bordered"><thead><tr></tr></thead></table>');
 	for (var i = 0; i < table_cap.length; i++) {
 		$("#screen_table thead tr").append("<th>"+table_cap[i]+"</th>")
 	}
@@ -15,7 +15,13 @@ function create_table(data, table_cap) {
 		$("#screen_table table tbody").append("<tr></tr>");
 		var row = data[i];
 		for (var j = 0; j < row.length; j++) {
-			$("#screen_table table tbody tr:last").append("<td>"+row[j]+"</td>")
+			if (j == 0) {
+				$("#screen_table table tbody tr:last").append("<th>"+row[j]+"</th>")
+
+			}
+			else {
+				$("#screen_table table tbody tr:last").append("<td>"+row[j]+"</td>")
+			}
 		}
 	}
 }
