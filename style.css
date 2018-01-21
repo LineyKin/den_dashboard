@@ -22,15 +22,19 @@ html, body {
     position: relative;
 }
 
-/*#screen_table th:first-child {
-    position: absolute;
-    left: 5px
-}*/
+
+
+#screen_table th:first-child {
+    position: sticky;
+  	min-width: 80px !important;
+  	background:#F5F5F5;
+    left: -2px;
+}
 
 #screen_table td, #screen_table th {
 	padding: 5px;
 	margin-bottom: 10px;
-	min-width: 150px !important;
+	min-width: 350px !important;
 }
 
 #graph {
