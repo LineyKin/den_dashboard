@@ -6,15 +6,16 @@ function active_item(obj) {
 }
 
 function create_table(data, table_cap) {
-	$("#screen_table").html('<table class="table table-bordered"><tr></tr></table>');
+	$("#screen_table").html('<table><thead><tr></tr></thead></table>');
 	for (var i = 0; i < table_cap.length; i++) {
-		$("#screen_table tr").append("<th>"+table_cap[i]+"</th>")
+		$("#screen_table thead tr").append("<th>"+table_cap[i]+"</th>")
 	}
+	$("#screen_table table").append("<tbody></tbody>");
 	for (var i = 0; i < data.length; i++) {
-		$("#screen_table table").append("<tr></tr>");
+		$("#screen_table table tbody").append("<tr></tr>");
 		var row = data[i];
 		for (var j = 0; j < row.length; j++) {
-			$("#screen_table table tr:last").append("<td>"+row[j]+"</td>")
+			$("#screen_table table tbody tr:last").append("<td>"+row[j]+"</td>")
 		}
 	}
 }

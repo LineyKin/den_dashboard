@@ -13,9 +13,23 @@ html, body {
 
 #screen_table {
 	height: 220px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	cursor: pointer;
 	border: 1px solid #eee;
+	padding-bottom: 15px;
+	overflow-x:scroll;
+    overflow-y:hidden;
+}
+
+#screen_table th:first-child {
+    position: fixed;
+    left: 5px
+}
+
+#screen_table td, #screen_table th {
+	padding: 5px;
+	margin-bottom: 10px;
+	width: 1650px !important;
 }
 
 #graph {

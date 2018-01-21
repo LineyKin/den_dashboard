@@ -12,13 +12,15 @@ $data_array = [];
 $dashboard = [];
 
 if ($menu_item_id == 1) {
-	$query = "SELECT week, app_id, amount FROM den_txt ORDER BY week, app_id";
+	$query = "SELECT week_begin, week_end, app_id, amount FROM den_txt ORDER BY week_of_year, app_id";
 	$result = make_query($query);
 	$data_array = getSimpleList($result);
 
 	$table_caps[1] = ["id"];
 	foreach ($data_array as $key => $value) {
-		$week = "week ".$value['week'];
+		$week_begin = date("d.m" , strtotime($value['week_begin']));
+		$week_end = date("d.m" , strtotime($value['week_end']));
+		$week = $week_begin."-".$week_end;
 		if(!in_array($week, $table_caps[1])) {
 			array_push($table_caps[1], $week);
 		}
