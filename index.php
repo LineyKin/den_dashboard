@@ -18,8 +18,11 @@
 	<div class="row">
 		<div class="col-md-2">
 			<ul id="menu" class="nav nav-pills nav-stacked">
-				<li data-id="1" class="active"><a>TXT</a></li>
-				<li data-id="2"><a>CSV</a></li>
+				<li data-id="1" class="active"><a>Общие показатели</a></li>
+				<li data-id="2"><a>SMS/USSD</a></li>
+				<li data-id="3"><a>Подписочные сервисы</a></li>
+				<li data-id="4"><a>Наполненность профиля</a></li>
+				<li data-id="6"><a>Использование МП</a></li>
 			</ul>
 		</div>	
 		<div id="screen" class="col-md-10">

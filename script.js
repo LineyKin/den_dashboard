@@ -30,6 +30,7 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart(data, table_cap) {
+	console.log(data);
 	var csv_array = [];
 	csv_array[0] = table_cap;
     for (var i = 0; i < data.length; i++) {
@@ -50,16 +51,13 @@ function drawChart(data, table_cap) {
     csv_chart.draw(csv_data, csv_options);
 }
 
-
-$("#menu li").on("click", function() {
-	active_item(this);
-	$("#screen_table").empty();
-	var menu_item_id = $(this).data("id");
+function load_table(id) {
+	console.log(id);
 	$.ajax({
 		type: "POST",
 		url: "ajax.php",
 		data: {
-			menu_item_id: menu_item_id
+			menu_item_id: id
 		},
 		success: function(ajax_data) {
 			var ajax_data = JSON.parse(ajax_data);
@@ -69,8 +67,18 @@ $("#menu li").on("click", function() {
 			drawChart(data, table_cap);
 		}
 	});
+}
+
+$(document).ready(function() {
+	load_table(1);
 });
 
+$("#menu li").on("click", function() {
+	active_item(this);
+	var menu_item_id = $(this).data("id");
+	$("#screen_table").empty();
+	load_table(menu_item_id);
+});
 
 $("#screen_table").on("click", function() {
 	var height_status = $(this).data("height");
